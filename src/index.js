@@ -2,18 +2,26 @@ const express = require('express');
 const app = express();
 
 const { mognoose, sequelize } = require('./db')
+
 const comment = require('./entities/comment')
 const user = require('./entities/user')
 
+// Скрипт старта
 ;(async() => {
+  // Старт зависимостей
   const mognooseClient = await mognoose.start()
   const sequilizeClient = sequelize.start()
 
-  app.use(express.json());
+  // Прогрева
 
-  comment.register(app, sequilizeClient)
-  user.register(app, mognooseClient)
+  // Настройка
+  app.use(express.json()); // body-parser для работы с json
 
+  // регистрирую мои модули.
+  await user.register(app, mognooseClient)
+  await comment.register(app, sequilizeClient)
+
+  // Старт
   app.listen(8080, (err) => {
     if (err) {
       console.error('Server started with error', err)

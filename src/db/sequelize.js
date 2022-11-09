@@ -8,8 +8,6 @@ module.exports = {
       dialect: 'postgres',
       logging: false
     })
-      
-      // 'postgres://postgres:@localhost:5432/postgres')
 
     return sequelize;
   }

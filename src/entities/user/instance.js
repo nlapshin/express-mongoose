@@ -1,5 +1,11 @@
 const model = require('./model')
 
+// 1 Уровень. DB collection(table) или ORM(ODM) схема. 
+// Записывались и считывались корректно.
+// 2 Уровень. Repository - контроллер для коллекции.
+// 3 Уровень(возможный). Это бизнес-логика(сервисы и т.д.).
+// 4 Уровень. Это endpoints или routes. Обрабатываем входные данные + готовим ответ.
+
 module.exports = class UserInstance {
   constructor(mongoose) {
     this.mongoose = mongoose
