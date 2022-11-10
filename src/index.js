@@ -11,8 +11,18 @@ const user = require('./entities/user')
 
   app.use(express.json());
 
+  // app - сервер, sequilizeClient - клиент для postgres
   comment.register(app, sequilizeClient)
+  // app - сервер, mognooseClient - клиент для mongodb
   user.register(app, mognooseClient)
+
+  app.use((err, req, res, next) => {
+    if (err instanceof HTTPError) {
+      return res.status(400).send({ success: false, error: { msg: 'err' }})
+    }
+    console.error(err.stack)
+    res.status(500).send('Something broke!')
+  })
 
   app.listen(8080, (err) => {
     if (err) {

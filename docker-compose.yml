@@ -11,15 +11,14 @@ services:
       MONGO_INITDB_ROOT_USERNAME: admin
       MONGO_INITDB_ROOT_PASSWORD: admin
     ports:
-      - 27018:27017
+      - 27020:27017
   postgres-test:
     image: postgres
     hostname: postgres-test
     tty: true
     stdin_open: true
     restart: "unless-stopped"
-    restart: always
     environment:
       POSTGRES_PASSWORD: postgres
     ports:
-      - 5433:5432
+      - 5440:5432
