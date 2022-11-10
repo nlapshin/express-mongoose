@@ -21,3 +21,77 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 https://try.vikunja.io/api/v1/docs#tag/list/paths/~1backgrounds~1unsplash~1image~1{image}/get
+Нужно создать backend web server.
+
+Что там надо иметь?
+
+- Протокол обмена. RESTful API - набор практик. SOAP - протокол(xml). GraphQL. gRPC.
+- База данных. Подключить их и работать с ними.
+- Документация. Swagger(OpenAPI)/
+- Логгер. Winston, pino, bunyan.
+- Описание моделей - Data transfer object - DTO.
+- Валидацию и сериализация данных.
+- Архитектура(Dependency injection, структуру каталогов иметь, возможно микросервисы)
+- Тесты
+- Безопасность(https включить, helmet)
+
+Куда писать логи?
+- в stdout, но желательно в формате json.
+- в файлы.
+- в базы данных(mongodb).
+- прикрутить elk(через logstash).
+
+Валидация входных данных(body, headers, query-string)
+Сериализация выходных данных(response).
+
+HTTP 400
+{
+  error: "error msg",
+  statusExt: 400001 // BAD USER INPUT
+}
+
+// Нет разделения на ожидаемые и не ожидаемые ошибки
+
+// Когда храним состояния?
+Чтобы не вставлять данные по одной записи, вставляем кучей.
+Clickhouse, например, вставлять не по 1 записи, а пачкой по 10-100-1000 записей.
+
+Кэш:
+- обновление данных(инвалидация кэша)
+- время жизни кэша(TTL)
+
+Чтобы данные не протухали и были актуальными.
+
+У HTTP
+
+<title>
+<headers>
+<body>
+
+
+Метод путь  протокол
+GET /user/1 HTTP/1.1
+
+
+Host: developer.mozilla.org
+Accept-Language: fr
+
+GET - Read
+POST - Create(201 статус)
+PUT(PATCH) - Update
+DELETE - Delete
+
+PUT - замена
+PATCH - дополняем, добавляем, merge
+
+
+GET /user/1 - возвращает данные пользователя по id = 1
+POST /user - создает пользователя
+PATCH /user/1 - обновляет пользователья по id = 1
+
+/user или /users - холивар
+
+/mouse /mice
+/s /es
+
+JSON === REST

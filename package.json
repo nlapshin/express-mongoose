@@ -19,10 +19,12 @@
   "homepage": "https://github.com/nlapshin/express-mongoose#readme",
   "dependencies": {
     "express": "^4.18.1",
+    "express-validation": "^4.1.0",
     "mongoose": "^6.4.7",
     "pg": "^8.7.3",
     "pg-hstore": "^2.3.4",
-    "sequelize": "^6.21.3"
+    "sequelize": "^6.21.3",
+    "swagger-ui-express": "^4.6.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.19"

@@ -1,7 +1,11 @@
+const { validate } = require('express-validation')
+const dto = require('./dto')
+
+
 module.exports = {
   register(express, userInstance) {
     
-    express.post('/user/', async (req, res) => {
+    express.post('/user/', validate(dto.userCreate, {}, {}), async (req, res) => {
       const instance = await userInstance.create(req.body)
 
       res.send({ success: true, data: { id: instance._id.toString() } })
