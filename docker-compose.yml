@@ -18,8 +18,7 @@ services:
     tty: true
     stdin_open: true
     restart: "unless-stopped"
-    restart: always
     environment:
       POSTGRES_PASSWORD: postgres
     ports:
-      - 5433:5432
+      - 5450:5432

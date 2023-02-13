@@ -4,7 +4,7 @@ module.exports = {
   start() {
     const sequelize = new Sequelize('postgres', 'postgres', 'postgres', {
       host: 'localhost',
-      port: 5433,
+      port: 5450,
       dialect: 'postgres',
       logging: false
     })

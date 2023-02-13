@@ -1,7 +1,7 @@
-const mognoose = require('./mognoose')
+const mongoose = require('./mongoose')
 const sequelize = require('./sequelize')
 
 module.exports = {
-  mognoose,
+  mongoose,
   sequelize
 }

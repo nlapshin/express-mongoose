@@ -1,12 +1,14 @@
 const express = require('express');
 const app = express();
 
-const { mognoose, sequelize } = require('./db')
+// mongodb через mongoose
+// postgresql через sequelize
+const { mongoose, sequelize } = require('./db')
 const comment = require('./entities/comment')
 const user = require('./entities/user')
 
 ;(async() => {
-  const mognooseClient = await mognoose.start()
+  const mognooseClient = await mongoose.start()
   const sequilizeClient = sequelize.start()
 
   app.use(express.json());
